@@ -39,7 +39,7 @@
         android:id="@+id/confirmPasswordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirm Password..."
+        android:hint="Confirm Password"
         android:inputType="textPassword"
         android:visibility="gone" />
 
