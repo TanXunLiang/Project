@@ -18,7 +18,8 @@ class UserListActivity : AppCompatActivity(), UserAdapter.UserClickListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var recyclerView: RecyclerView
     private lateinit var userAdapter: UserAdapter
-    private lateinit var bookingButton: Button  // Renamed to follow naming conventions
+    private lateinit var bookingButton: Button
+    private lateinit var LogoutButton: Button
     private val users = mutableListOf<User>()
     private lateinit var dbHelper: DatabaseHelper
 
@@ -50,10 +51,12 @@ class UserListActivity : AppCompatActivity(), UserAdapter.UserClickListener {
         recyclerView.adapter = userAdapter
 
         // Find the Booking button inside the NavigationView
+        LogoutButton = findViewById(R.id.Logout);
+        LogoutButton.setOnClickListener {
+            launchMainActivity()
+            // Assuming there's only one header
 
-        // Assuming there's only one header
-
-
+        }
         bookingButton = findViewById(R.id.Booking)
         bookingButton.setOnClickListener {
             launchSecondActivity()
@@ -68,6 +71,10 @@ class UserListActivity : AppCompatActivity(), UserAdapter.UserClickListener {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+    private fun launchMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
     private fun launchSecondActivity() {
         val intent = Intent(this, SecondActivity::class.java)

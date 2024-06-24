@@ -19,6 +19,7 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var tableAdapter: TableAdapter
     private lateinit var UserButton: Button
+    private lateinit var LogoutButton: Button
     private val tableItems = mutableListOf<TableItem>()
     private var selectedTablePosition: Int = RecyclerView.NO_POSITION
 
@@ -40,6 +41,7 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.sidebar) // Use an appropriate icon
         UserButton = findViewById(R.id.User);
+       LogoutButton = findViewById(R.id.Logout);
 
         // Initialize RecyclerView and adapter
         recyclerView = findViewById(R.id.recyclerView)
@@ -84,6 +86,10 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
         UserButton.setOnClickListener {
             launchUserActivity()
         }
+       LogoutButton = findViewById(R.id.Logout)
+       LogoutButton.setOnClickListener {
+            launchMainActivity()
+        }
 
     }
 
@@ -98,6 +104,10 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
     }
     private fun launchUserActivity() {
         val intent = Intent(this, UserListActivity::class.java)
+        startActivity(intent)
+    }
+    private fun launchMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 
