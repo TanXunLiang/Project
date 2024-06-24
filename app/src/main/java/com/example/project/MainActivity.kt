@@ -11,6 +11,7 @@ import com.example.myapp.DatabaseHelper
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var formTitle: TextView
     private lateinit var emailEditText: EditText
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        formTitle = findViewById(R.id.formTitle)
         emailEditText = findViewById(R.id.emailEditText)
         usernameEditText = findViewById(R.id.usernameEditText)
         passwordEditText = findViewById(R.id.passwordEditText)
@@ -71,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         backButton.visibility = View.VISIBLE
         registerButton.visibility = View.GONE
         loginButton.visibility = View.GONE
+        formTitle.text = "Register"
     }
 
     private fun createAccount() {
@@ -116,6 +119,7 @@ class MainActivity : AppCompatActivity() {
         registerButton.visibility = View.VISIBLE
         loginButton.visibility = View.VISIBLE
         messageTextView.text = ""
+        formTitle.text = "Login"
     }
 
     private fun goBackToLogin() {
