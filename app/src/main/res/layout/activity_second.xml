@@ -42,14 +42,14 @@
                 android:paddingBottom="16dp"
                 android:paddingTop="16dp">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/addButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add Table"
                     android:layout_marginEnd="16dp" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/removeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -62,6 +62,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="16dp"
                 android:layout_below="@id/topButtonLayout"
                 android:layout_above="@id/bottomButtonLayout"
                 android:layout_weight="1" />
@@ -77,25 +78,25 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/bookButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Book"
                     android:layout_marginEnd="16dp" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/checkInButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Check In"
                     android:layout_marginEnd="16dp" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/freeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Free" />
+                    android:text="Available" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -115,7 +116,7 @@
                 android:orientation="vertical">
 
                 <!-- Example items -->
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/User"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,7 +127,8 @@
                     android:layout_height="wrap_content"
                     android:text="Booking"
                     android:padding="16dp" />
-                <Button
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/Logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
