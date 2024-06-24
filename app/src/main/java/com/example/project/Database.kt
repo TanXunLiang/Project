@@ -49,7 +49,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         onCreate(db)
     }
 
-    fun addUser(email: String, password: String, username: String): Boolean {
+    fun addUser(email: String, username: String, password: String): Boolean {
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(COLUMN_EMAIL, email)
