@@ -124,7 +124,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sidebar Item 2"
+                    android:text="Booking"
                     android:padding="16dp" />
 
             </LinearLayout>
