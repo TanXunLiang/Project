@@ -71,17 +71,29 @@ class TableAdapter(
         holder.statusTextView.text = currentItem.status
         holder.bookerNameEditText.setText(currentItem.bookerName)
 
+        // Set up spinner with time slots
         val timeSlots = generateTimeSlots()
         val adapter = ArrayAdapter(holder.itemView.context, android.R.layout.simple_spinner_item, timeSlots)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         holder.bookingTimeSpinner.adapter = adapter
 
+        // Set selected time slot in the spinner
         val selectedPosition = timeSlots.indexOf(formatTime(currentItem.bookingTime))
         if (selectedPosition != -1) {
             holder.bookingTimeSpinner.setSelection(selectedPosition)
         }
 
-        if (position == this.selectedPosition) {
+        // Enable/disable bookerNameEditText and bookingTimeSpinner based on status
+        if (currentItem.status.equals("booked", ignoreCase = true)) {
+            holder.bookerNameEditText.isEnabled = false
+            holder.bookingTimeSpinner.isEnabled = false
+        } else {
+            holder.bookerNameEditText.isEnabled = true
+            holder.bookingTimeSpinner.isEnabled = true
+        }
+
+        // Highlight selected item
+        if (position == selectedPosition) {
             holder.itemView.setBackgroundResource(R.drawable.selected_table_background)
         } else {
             holder.itemView.setBackgroundResource(R.drawable.default_table_background)
