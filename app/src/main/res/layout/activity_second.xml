@@ -4,7 +4,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".SecondActivity"
+    android:background="#B5E0EF">
 
     <!-- Main content layout -->
     <RelativeLayout
@@ -47,14 +48,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add Table"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#0277BD"
+                android:textColor="#FFFFFF"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/removeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Remove Table"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#0277BD"
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
 
         <!-- RecyclerView in the middle -->
@@ -83,20 +88,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Book"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#AB47BC"
+                android:textColor="#FFFFFF"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/checkInButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Check In"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#AB47BC"
+                android:textColor="#FFFFFF"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/freeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available" />
+                android:text="Available"
+                android:backgroundTint="#AB47BC"
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
     </RelativeLayout>
 

@@ -4,7 +4,8 @@
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UserListActivity">
+        tools:context=".UserListActivity"
+        android:background="#B5E0EF">
 
         <!-- Main content layout -->
         <RelativeLayout
@@ -36,7 +37,9 @@
                 android:id="@+id/recyclerViewUsers"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/toolbar" />
+                android:layout_margin="16dp"
+                android:layout_below="@id/toolbar"
+                 />
         </RelativeLayout>
 
         <!-- Navigation view for the sidebar -->
