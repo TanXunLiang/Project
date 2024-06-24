@@ -46,7 +46,7 @@
                     android:id="@+id/addButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add Table"
+                    android:text="Add Table."
                     android:layout_marginEnd="16dp" />
 
                 <Button
