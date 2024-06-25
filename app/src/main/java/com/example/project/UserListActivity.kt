@@ -19,6 +19,7 @@ class UserListActivity : AppCompatActivity(), UserAdapter.UserClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userAdapter: UserAdapter
     private lateinit var bookingButton: Button
+    private lateinit var HistoryButton: Button
     private lateinit var LogoutButton: Button
     private val users = mutableListOf<User>()
     private lateinit var dbHelper: DatabaseHelper
@@ -61,6 +62,10 @@ class UserListActivity : AppCompatActivity(), UserAdapter.UserClickListener {
         bookingButton.setOnClickListener {
             launchSecondActivity()
         }
+        HistoryButton = findViewById(R.id.History);
+        HistoryButton.setOnClickListener {
+            launchHistoryActivity()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,6 +79,10 @@ class UserListActivity : AppCompatActivity(), UserAdapter.UserClickListener {
     }
     private fun launchMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+    private fun launchHistoryActivity() {
+        val intent = Intent(this, HistoryActivity::class.java)
         startActivity(intent)
     }
     private fun launchSecondActivity() {

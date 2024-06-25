@@ -140,6 +140,12 @@
                 android:padding="16dp" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/History"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="History" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/Logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

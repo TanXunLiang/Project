@@ -12,7 +12,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapp.DatabaseHelper
+import com.example.project.TableAdapter
+import com.example.project.TableItem
 import com.google.android.material.navigation.NavigationView
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
     private lateinit var drawerLayout: DrawerLayout
@@ -20,6 +25,7 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
     private lateinit var tableAdapter: TableAdapter
     private lateinit var UserButton: Button
     private lateinit var LogoutButton: Button
+    private lateinit var HistoryButton: Button
     private val tableItems = mutableListOf<TableItem>()
     private var selectedTablePosition: Int = RecyclerView.NO_POSITION
 
@@ -40,8 +46,9 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
         // Set up the navigation button in the toolbar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.sidebar) // Use an appropriate icon
-        UserButton = findViewById(R.id.User);
-       LogoutButton = findViewById(R.id.Logout);
+        UserButton = findViewById(R.id.User)
+        LogoutButton = findViewById(R.id.Logout)
+        HistoryButton = findViewById(R.id.History)
 
         // Initialize RecyclerView and adapter
         recyclerView = findViewById(R.id.recyclerView)
@@ -82,35 +89,42 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
         freeButton.setOnClickListener {
             updateTableStatus("available")
         }
-        UserButton = findViewById(R.id.User)
+
         UserButton.setOnClickListener {
             launchUserActivity()
         }
-       LogoutButton = findViewById(R.id.Logout)
-       LogoutButton.setOnClickListener {
+
+        LogoutButton.setOnClickListener {
             launchMainActivity()
         }
-
+        HistoryButton.setOnClickListener {
+            launchHistoryActivity()
+        }
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 drawerLayout.openDrawer(GravityCompat.START)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
+
     private fun launchUserActivity() {
         val intent = Intent(this, UserListActivity::class.java)
         startActivity(intent)
     }
+
     private fun launchMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
-
+    private fun launchHistoryActivity() {
+        val intent = Intent(this, HistoryActivity::class.java)
+        startActivity(intent)
+    }
     private fun populateInitialTableItems() {
         // Populate tableItems with initial data from the database
         tableItems.addAll(dbHelper.getAllTables())
@@ -141,6 +155,18 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
     private fun updateTableStatus(status: String) {
         if (selectedTablePosition != RecyclerView.NO_POSITION) {
             val tableItem = tableItems[selectedTablePosition]
+            val currentTime = System.currentTimeMillis()
+            val formattedCurrentTime = convertToAmPm(currentTime)
+
+            if (status == "available") {
+                val formattedBookingTime = convertToAmPm(tableItem.bookingTime)
+                dbHelper.addHistoryRecord(
+                    "Table ${tableItem.tableNumber}",
+                    formattedBookingTime,
+                    tableItem.bookerName,
+                    formattedCurrentTime
+                )
+            }
             tableItem.status = status
             tableAdapter.notifyItemChanged(selectedTablePosition)
             dbHelper.updateTable(tableItem.id, status, tableItem.bookingTime, tableItem.bookerName)
@@ -149,7 +175,13 @@ class SecondActivity : AppCompatActivity(), TableAdapter.TableClickListener {
         }
     }
 
+    private fun convertToAmPm(time: Long): String {
+        val dateFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+        return dateFormat.format(Date(time))
+    }
+
     override fun onTableClick(position: Int) {
         selectedTablePosition = position
+        tableAdapter.notifyDataSetChanged() // Notify adapter to refresh the item views
     }
 }
