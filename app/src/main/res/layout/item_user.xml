@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#B5E0EF"
+    >
 
     <!-- Username -->
     <TextView
@@ -11,8 +13,9 @@
         android:layout_height="wrap_content"
         android:text="Username"
         android:textStyle="bold"
-        android:textSize="16sp"
-        android:paddingBottom="8dp"/>
+        android:textSize="20sp"
+        android:paddingBottom="8dp"
+        android:textstyle="bold"/>
 
     <EditText
         android:id="@+id/editUsername"
@@ -26,15 +29,17 @@
         android:layout_height="wrap_content"
         android:text="Email"
         android:textStyle="bold"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingTop="16dp"
-        android:paddingBottom="8dp"/>
+        android:paddingBottom="8dp"
+        />
 
     <EditText
         android:id="@+id/editEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your email" />
+        android:hint="Enter your email"
+        />
 
     <!-- Password -->
     <TextView
@@ -42,9 +47,10 @@
         android:layout_height="wrap_content"
         android:text="Password"
         android:textStyle="bold"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:paddingTop="16dp"
-        android:paddingBottom="8dp"/>
+        android:paddingBottom="8dp"
+        />
 
     <EditText
         android:id="@+id/editPassword"
@@ -65,14 +71,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"
+            android:textColor="@android:color/white"
             android:layout_weight="1" />
 
         <Button
             android:id="@+id/deleteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:layout_marginStart="8dp" />
+            android:backgroundTint="#595B5C"
+            android:text="Delete"
+            android:textColor="#ED0722" />
     </LinearLayout>
 </LinearLayout>
