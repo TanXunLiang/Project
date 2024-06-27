@@ -30,6 +30,11 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+            <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/history" />
         </androidx.appcompat.widget.Toolbar>
 
         <!-- RecyclerView in the middle -->

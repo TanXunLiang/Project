@@ -10,8 +10,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapp.DatabaseHelper
-import com.google.android.material.navigation.NavigationView
 
 class HistoryActivity : AppCompatActivity(){
     private lateinit var drawerLayout: DrawerLayout

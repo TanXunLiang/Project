@@ -11,8 +11,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapp.DatabaseHelper
-import com.google.android.material.navigation.NavigationView
 
 class UserListActivity : AppCompatActivity(), UserAdapter.UserClickListener {
     private lateinit var drawerLayout: DrawerLayout

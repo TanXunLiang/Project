@@ -1,13 +1,11 @@
-package com.example.myapp
+package com.example.project
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.project.TableItem
-import com.example.project.HistoryItem
-import com.example.project.User
+
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
@@ -208,10 +206,18 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         if (cursor.moveToFirst()) {
             do {
                 val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_HISTORY_ID))
-                val tableName = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_HISTORY_TABLE_NAME))
-                val bookingTime = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_HISTORY_BOOKING_TIME))
-                val bookerName = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_HISTORY_BOOKER_NAME))
-                val currentTime = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_HISTORY_CURRENT_TIME))
+                val tableName = cursor.getString(cursor.getColumnIndexOrThrow(
+                    COLUMN_HISTORY_TABLE_NAME
+                ))
+                val bookingTime = cursor.getString(cursor.getColumnIndexOrThrow(
+                    COLUMN_HISTORY_BOOKING_TIME
+                ))
+                val bookerName = cursor.getString(cursor.getColumnIndexOrThrow(
+                    COLUMN_HISTORY_BOOKER_NAME
+                ))
+                val currentTime = cursor.getString(cursor.getColumnIndexOrThrow(
+                    COLUMN_HISTORY_CURRENT_TIME
+                ))
                 val historyItem = HistoryItem(id, tableName, bookingTime, bookerName, currentTime)
                 historyList.add(historyItem)
             } while (cursor.moveToNext())

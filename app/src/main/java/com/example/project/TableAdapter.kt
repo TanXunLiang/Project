@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapp.DatabaseHelper
 
 class TableAdapter(
     private val tableItems: List<TableItem>,
